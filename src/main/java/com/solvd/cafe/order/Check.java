@@ -3,24 +3,23 @@ package com.solvd.cafe.order;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Objects;
+import java.util.TreeMap;
 
 public class Check {
     private int checkId;
     private int clientId;
     private int waiterId;
     private Date date;
-    private Menu[] items;
+    private TreeMap<Menu, Integer> menuItems;
     private double total;
 
-    public Check(){
-
-    }
-    public Check(int checkId, int clientId, int waiterId, Date date, Menu[] items, double total) {
+    public Check(){};
+    public Check(int checkId, int clientId, int waiterId, Date date, TreeMap<Menu, Integer> menuItems, double total) {
         this.checkId = checkId;
         this.clientId = clientId;
         this.waiterId = waiterId;
         this.date = date;
-        this.items = items;
+        this.menuItems = menuItems;
         this.total = total;
     }
 
@@ -56,12 +55,12 @@ public class Check {
         this.date = date;
     }
 
-    public Menu[] getItems() {
-        return items;
+    public TreeMap<Menu, Integer> getMenuItems() {
+        return menuItems;
     }
 
-    public void setItems(Menu[] items) {
-        this.items = items;
+    public void setMenuItems(TreeMap<Menu, Integer> menuItems) {
+        this.menuItems = menuItems;
     }
 
     public double getTotal() {
@@ -75,16 +74,13 @@ public class Check {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Check check = (Check) o;
-        return checkId == check.checkId && clientId == check.clientId && waiterId == check.waiterId && Double.compare(check.total, total) == 0 && date.equals(check.date) && Arrays.equals(items, check.items);
+        return checkId == check.checkId && clientId == check.clientId && waiterId == check.waiterId &&
+                Double.compare(check.total, total) == 0 && date.equals(check.date) && menuItems.equals(check.menuItems);
     }
-
     @Override
     public int hashCode() {
-        int result = Objects.hash(checkId, clientId, waiterId, date, total);
-        result = 31 * result + Arrays.hashCode(items);
-        return result;
+        return Objects.hash(checkId, clientId, waiterId, date, menuItems, total);
     }
-
     @Override
     public String toString() {
         return "Check{" +
@@ -92,7 +88,7 @@ public class Check {
                 ", clientId=" + clientId +
                 ", waiterId=" + waiterId +
                 ", date=" + date +
-                ", items=" + Arrays.toString(items) +
+                ", menuItems=" + menuItems +
                 ", total=" + total +
                 '}';
     }

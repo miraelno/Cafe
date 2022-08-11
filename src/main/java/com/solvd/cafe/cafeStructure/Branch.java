@@ -1,15 +1,14 @@
 package com.solvd.cafe.cafeStructure;
 
 import com.solvd.cafe.interfaces.IWorking;
-import com.solvd.cafe.interfaces.IFindFreeTable;
 import com.solvd.cafe.people.Administrator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.Objects;
 
-public class Branch implements IWorking, IFindFreeTable {    //Café branches
-    Logger branchLogger = LogManager.getLogger(Branch.class.getClass());
+public class Branch implements IWorking{    //Café branches
+    Logger branchLogger = LogManager.getLogger(Branch.class);
     private int branchId;
     private String city;
     private String address;
@@ -20,7 +19,8 @@ public class Branch implements IWorking, IFindFreeTable {    //Café branches
     public Branch(){
 
     }
-    public Branch(int branchId, String city, String address, int numberOfHalls, int numberOfSeats, Administrator administrator){
+    public Branch(int branchId, String city, String address, int numberOfHalls, int numberOfSeats,
+                  Administrator administrator){
 
         this.branchId = branchId;
         this.city = city;
@@ -107,10 +107,5 @@ public class Branch implements IWorking, IFindFreeTable {    //Café branches
     public boolean work() {
     branchLogger.info("Yes, we are open!");
     return true;
-    }
-
-    @Override
-    public void find(Branch branch) {
-        branchLogger.info("Let me see...(Need to develop)");
     }
 }

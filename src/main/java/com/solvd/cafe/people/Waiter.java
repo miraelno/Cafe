@@ -1,18 +1,19 @@
 package com.solvd.cafe.people;
 
 import com.solvd.cafe.cafeStructure.Branch;
+import com.solvd.cafe.cafeStructure.Kitchen;
 import com.solvd.cafe.cafeStructure.Table;
 import com.solvd.cafe.interfaces.IOrdering;
+import com.solvd.cafe.order.Menu;
+import com.solvd.cafe.order.Order;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Objects;
+import java.util.*;
 
-public class Waiter extends Employee implements IOrdering {
-    private static Logger waiterLogger = LogManager.getLogger(Waiter.class.getClass());
+public class Waiter extends Employee{
+    private static final Logger waiterLogger = LogManager.getLogger(Waiter.class);
     private Branch branch;
     private boolean speaksEnglish;
 
@@ -60,10 +61,5 @@ public class Waiter extends Employee implements IOrdering {
                 "branch=" + branch +
                 ", speaksEnglish=" + speaksEnglish +
                 '}';
-    }
-
-    @Override
-    public void takeOrder(Table table, Waiter waiter, ArrayList menuItems) {
-        waiterLogger.info("Okay, you ordered" + menuItems);
     }
 }

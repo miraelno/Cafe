@@ -7,7 +7,7 @@ import org.apache.logging.log4j.Logger;
 import java.util.Objects;
 
 public class Hall implements IWorking {
-    Logger hallLogger = LogManager.getLogger(Hall.class.getClass());
+    Logger hallLogger = LogManager.getLogger(Hall.class);
     private int hallId;
     private Branch branch;
     private boolean isForSmokers;

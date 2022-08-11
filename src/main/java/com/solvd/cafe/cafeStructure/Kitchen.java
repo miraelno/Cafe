@@ -1,21 +1,29 @@
 package com.solvd.cafe.cafeStructure;
 
+import com.solvd.cafe.interfaces.IOrderQueue;
 import com.solvd.cafe.interfaces.IWorking;
+import com.solvd.cafe.order.Order;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Objects;
+import java.util.TreeMap;
 
-public class Kitchen implements IWorking {
-    Logger kitchenLogger = LogManager.getLogger(Kitchen.class.getClass());
+public class Kitchen implements IWorking, IOrderQueue {
+    Logger kitchenLogger = LogManager.getLogger(Kitchen.class);
     private int branchId;
     private int maxNumberOfCooks;
     private boolean isTakesOrders;
     private String chef;
 
-    public Kitchen(){
+    private ArrayDeque<Order> orders;
+
+    public Kitchen() {
 
     }
+
     public Kitchen(int branchId, int maxNumberOfCooks, boolean isTakesOrders, String chef) {
         this.branchId = branchId;
         this.maxNumberOfCooks = maxNumberOfCooks;
@@ -51,7 +59,17 @@ public class Kitchen implements IWorking {
         return chef;
     }
 
-    public void setChef(String chef) {this.chef = chef;}
+    public void setChef(String chef) {
+        this.chef = chef;
+    }
+
+    public ArrayDeque<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(ArrayDeque<Order> orders) {
+        this.orders = orders;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -80,5 +98,22 @@ public class Kitchen implements IWorking {
     public boolean work() {
         kitchenLogger.info("Yes, we are open!");
         return true;
+    }
+
+    public ArrayList<TreeMap<Integer, TreeMap<String, Integer>>> addOrder(Order order) {
+        /*   TreeMap<String, Integer> menuItems = new TreeMap<>();
+        ArrayDeque<TreeMap<String, Integer>> order = new ArrayDeque<>();
+        menuItems.put(name, quantity);
+        order.add(menuItems);
+        order.add(menuItems);
+        System.out.println(order);
+        return null;*/
+        kitchenLogger.info(order);
+        order.getMenuItems();
+        return null;
+    }
+
+    public ArrayDeque<Order> giveOrder() {
+        return null;
     }
 }

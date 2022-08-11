@@ -7,24 +7,27 @@ import com.solvd.cafe.people.Waiter;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Objects;
+import java.util.TreeMap;
 
 public class Order {
     private int orderId;
     private Branch branch;
     private Kitchen kitchen;
     private Waiter waiter;
-    private Menu[] menu;
+    private TreeMap<String, Integer> menuItems;
     private Date dateOrder;
 
-    public Order (){
+    public Order() {
 
     }
-    public Order(int orderId, Branch branch, Kitchen kitchen, Waiter waiter, Menu[] menu, Date dateOrder) {
+
+    public Order(int orderId, Branch branch, Kitchen kitchen, Waiter waiter, TreeMap<String, Integer> menuItems,
+                 Date dateOrder) {
         this.orderId = orderId;
         this.branch = branch;
         this.kitchen = kitchen;
         this.waiter = waiter;
-        this.menu = menu;
+        this.menuItems = menuItems;
         this.dateOrder = dateOrder;
     }
 
@@ -60,12 +63,12 @@ public class Order {
         this.waiter = waiter;
     }
 
-    public Menu[] getMenu() {
-        return menu;
+    public TreeMap<String, Integer> getMenuItems() {
+        return menuItems;
     }
 
-    public void setMenu(Menu[] menu) {
-        this.menu = menu;
+    public void setMenuItems(TreeMap<String, Integer> menuItems) {
+        this.menuItems = menuItems;
     }
 
     public Date getDateOrder() {
@@ -81,14 +84,13 @@ public class Order {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Order order = (Order) o;
-        return orderId == order.orderId && branch.equals(order.branch) && kitchen.equals(order.kitchen) && waiter.equals(order.waiter) && Arrays.equals(menu, order.menu) && dateOrder.equals(order.dateOrder);
+        return orderId == order.orderId && branch.equals(order.branch) && kitchen.equals(order.kitchen) &&
+                waiter.equals(order.waiter) && menuItems.equals(order.menuItems) && dateOrder.equals(order.dateOrder);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(orderId, branch, kitchen, waiter, dateOrder);
-        result = 31 * result + Arrays.hashCode(menu);
-        return result;
+        return Objects.hash(orderId, branch, kitchen, waiter, menuItems, dateOrder);
     }
 
     @Override
@@ -98,7 +100,7 @@ public class Order {
                 ", branch=" + branch +
                 ", kitchen=" + kitchen +
                 ", waiter=" + waiter +
-                ", menu=" + Arrays.toString(menu) +
+                ", menuItems=" + menuItems +
                 ", dateOrder=" + dateOrder +
                 '}';
     }

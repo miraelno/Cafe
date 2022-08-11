@@ -4,18 +4,18 @@ import com.solvd.cafe.people.Client;
 import com.solvd.cafe.people.Employee;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 public class Cafe {
     private String nameCafe;
     private String nameOwner;
-    private Employee[] employee;
-    private Branch[] branch;
-    private Client[] client;
+    private List<Employee> employee;
+    private List<Branch> branch;
+    private List<Client> client;
 
-    public Cafe(){
-    }
-    public Cafe(String nameCafe, String nameOwner, Employee[] employee, Branch[] branch, Client[] client){
+    public Cafe(){};
+    public Cafe(String nameCafe, String nameOwner, List<Employee> employee, List<Branch> branch, List<Client> client) {
         this.nameCafe = nameCafe;
         this.nameOwner = nameOwner;
         this.employee = employee;
@@ -39,27 +39,27 @@ public class Cafe {
         this.nameOwner = nameOwner;
     }
 
-    public Employee[] getEmployee() {
+    public List<Employee> getEmployee() {
         return employee;
     }
 
-    public void setEmployee(Employee[] employee) {
+    public void setEmployee(List<Employee> employee) {
         this.employee = employee;
     }
 
-    public Branch[] getBranch() {
+    public List<Branch> getBranch() {
         return branch;
     }
 
-    public void setBranch(Branch[] branch) {
+    public void setBranch(List<Branch> branch) {
         this.branch = branch;
     }
 
-    public Client[] getClient() {
+    public List<Client> getClient() {
         return client;
     }
 
-    public void setClient(Client[] client) {
+    public void setClient(List<Client> client) {
         this.client = client;
     }
 
@@ -68,18 +68,12 @@ public class Cafe {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Cafe cafe = (Cafe) o;
-        return nameCafe.equals(cafe.nameCafe) && nameOwner.equals(cafe.nameOwner) &&
-                Arrays.equals(employee, cafe.employee) && Arrays.equals(branch, cafe.branch) &&
-                Arrays.equals(client, cafe.client);
+        return nameCafe.equals(cafe.nameCafe) && nameOwner.equals(cafe.nameOwner) && employee.equals(cafe.employee) && branch.equals(cafe.branch) && client.equals(cafe.client);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(nameCafe, nameOwner);
-        result = 31 * result + Arrays.hashCode(employee);
-        result = 31 * result + Arrays.hashCode(branch);
-        result = 31 * result + Arrays.hashCode(client);
-        return result;
+        return Objects.hash(nameCafe, nameOwner, employee, branch, client);
     }
 
     @Override
@@ -87,9 +81,9 @@ public class Cafe {
         return "Cafe{" +
                 "nameCafe='" + nameCafe + '\'' +
                 ", nameOwner='" + nameOwner + '\'' +
-                ", employee=" + Arrays.toString(employee) +
-                ", branch=" + Arrays.toString(branch) +
-                ", client=" + Arrays.toString(client) +
+                ", employee=" + employee +
+                ", branch=" + branch +
+                ", client=" + client +
                 '}';
     }
 }

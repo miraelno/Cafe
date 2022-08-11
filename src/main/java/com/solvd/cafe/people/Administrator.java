@@ -1,21 +1,20 @@
 package com.solvd.cafe.people;
 
-
 import com.solvd.cafe.exceptions.VacationException;
 import com.solvd.cafe.interfaces.IApproveVacation;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-
 import java.util.Objects;
 
 public class Administrator extends Employee implements IApproveVacation {
-    Logger adminLogger = LogManager.getLogger(Administrator.class.getClass());
+    Logger adminLogger = LogManager.getLogger(Administrator.class);
     private int branchId;
     private String workMobileNumber;
 
-    public Administrator(){
+    public Administrator() {
     }
+
     public Administrator(int branchId, String workMobileNumber) {
         this.branchId = branchId;
         this.workMobileNumber = workMobileNumber;
@@ -35,6 +34,19 @@ public class Administrator extends Employee implements IApproveVacation {
 
     public void setWorkMobileNumber(String workMobileNumber) {
         this.workMobileNumber = workMobileNumber;
+    }
+
+    public boolean approve(Employee employee) {
+        try {
+            if (employee.getVacationsDay() > 0) {
+                adminLogger.info("Have a good vacation!");
+            } else {
+                throw new VacationException();
+            }
+        } catch (VacationException e) {
+            adminLogger.error(e.getMessage());
+        }
+        return false;
     }
 
     @Override
@@ -57,19 +69,5 @@ public class Administrator extends Employee implements IApproveVacation {
                 "branchId=" + branchId +
                 ", workMobileNumber='" + workMobileNumber + '\'' +
                 '}';
-    }
-
-    public boolean approve(Employee employee){
-        try {
-            if(employee.getVacationsDay() > 0){
-                adminLogger.info("Have a good vacation!");
-            }
-            else {
-                throw new VacationException();
-            }
-        } catch (VacationException e){
-            adminLogger.error(e.getMessage());
-        }
-        return false;
     }
 }

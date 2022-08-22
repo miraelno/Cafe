@@ -5,27 +5,20 @@ import com.solvd.cafe.interfaces.IApproveVacation;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.Date;
 import java.util.Objects;
 
-public class Administrator extends Employee implements IApproveVacation {
+public class Administrator extends Employee{
     Logger adminLogger = LogManager.getLogger(Administrator.class);
-    private int branchId;
     private String workMobileNumber;
 
     public Administrator() {
     }
 
-    public Administrator(int branchId, String workMobileNumber) {
-        this.branchId = branchId;
+    public Administrator(String firstName, String lastName, String mobile, double salary,
+                         int vacationsDay, String workMobileNumber) {
+        super(firstName,lastName,mobile,salary,vacationsDay);
         this.workMobileNumber = workMobileNumber;
-    }
-
-    public int getBranchId() {
-        return branchId;
-    }
-
-    public void setBranchId(int branchId) {
-        this.branchId = branchId;
     }
 
     public String getWorkMobileNumber() {
@@ -55,19 +48,12 @@ public class Administrator extends Employee implements IApproveVacation {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         Administrator that = (Administrator) o;
-        return branchId == that.branchId && workMobileNumber.equals(that.workMobileNumber);
+        return workMobileNumber.equals(that.workMobileNumber);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), branchId, workMobileNumber);
+        return Objects.hash(super.hashCode(), workMobileNumber);
     }
 
-    @Override
-    public String toString() {
-        return "Administrator{" +
-                "branchId=" + branchId +
-                ", workMobileNumber='" + workMobileNumber + '\'' +
-                '}';
-    }
 }

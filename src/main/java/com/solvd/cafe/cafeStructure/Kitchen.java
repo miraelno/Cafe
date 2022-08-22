@@ -6,10 +6,7 @@ import com.solvd.cafe.order.Order;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Objects;
-import java.util.TreeMap;
+import java.util.*;
 
 public class Kitchen implements IWorking, IOrderQueue {
     Logger kitchenLogger = LogManager.getLogger(Kitchen.class);
@@ -17,7 +14,6 @@ public class Kitchen implements IWorking, IOrderQueue {
     private int maxNumberOfCooks;
     private boolean isTakesOrders;
     private String chef;
-
     private ArrayDeque<Order> orders;
 
     public Kitchen() {
@@ -95,7 +91,7 @@ public class Kitchen implements IWorking, IOrderQueue {
     }
 
     @Override
-    public boolean work() {
+    public boolean work(Date date) {
         kitchenLogger.info("Yes, we are open!");
         return true;
     }

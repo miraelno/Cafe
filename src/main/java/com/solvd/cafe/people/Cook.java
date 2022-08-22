@@ -4,6 +4,7 @@ package com.solvd.cafe.people;
 import com.solvd.cafe.cafeStructure.Branch;
 import com.solvd.cafe.cafeStructure.Kitchen;
 
+import java.util.Date;
 import java.util.Objects;
 
 public class Cook extends Employee {
@@ -14,7 +15,9 @@ public class Cook extends Employee {
     public Cook(){
     }
 
-    public Cook(Branch branch, Kitchen kitchen, boolean isChef) {
+    public Cook(String firstName, String lastName, String mobile, double salary,
+                int vacationsDay, Branch branch, Kitchen kitchen, boolean isChef) {
+        super(firstName,lastName,mobile,salary,vacationsDay);
         this.branch = branch;
         this.kitchen = kitchen;
         this.isChef = isChef;

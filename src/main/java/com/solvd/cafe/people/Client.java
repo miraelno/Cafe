@@ -15,21 +15,18 @@ import java.util.Objects;
 import java.util.Scanner;
 
 
-public class Client{
+public class Client extends Person{
     private static Logger clientLogger = LogManager.getLogger(Client.class);
     private int clientId;
-    private String name;
-    private String mobileNumber;
     private boolean isHaveDiscount;
 
     public Client() {
 
     }
 
-    public Client(int clientId, String name, String mobileNumber, boolean isHaveDiscount) {
+    public Client(String firstName, String lastName, String mobile,int clientId,boolean isHaveDiscount) {
+        super(firstName,lastName,mobile);
         this.clientId = clientId;
-        this.name = name;
-        this.mobileNumber = mobileNumber;
         this.isHaveDiscount = isHaveDiscount;
     }
 
@@ -39,22 +36,6 @@ public class Client{
 
     public void setClientId(int clientId) {
         this.clientId = clientId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getMobileNumber() {
-        return mobileNumber;
-    }
-
-    public void setMobileNumber(String mobileNumber) {
-        this.mobileNumber = mobileNumber;
     }
 
     public boolean isHaveDiscount() {
@@ -70,21 +51,18 @@ public class Client{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Client client = (Client) o;
-        return clientId == client.clientId && isHaveDiscount == client.isHaveDiscount && name.equals(client.name) &&
-                mobileNumber.equals(client.mobileNumber);
+        return clientId == client.clientId && isHaveDiscount == client.isHaveDiscount;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(clientId, name, mobileNumber, isHaveDiscount);
+        return Objects.hash(clientId,isHaveDiscount);
     }
 
     @Override
     public String toString() {
         return "Client{" +
                 "clientId=" + clientId +
-                ", name='" + name + '\'' +
-                ", mobileNumber='" + mobileNumber + '\'' +
                 ", isHaveDiscount=" + isHaveDiscount +
                 '}';
     }

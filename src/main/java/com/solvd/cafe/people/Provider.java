@@ -8,7 +8,8 @@ public class Provider extends Person {
 
     public Provider(){
     }
-    public Provider(String nameCompany, String products) {
+    public Provider(String firstName, String lastName, String mobile,String nameCompany, String products) {
+        super(firstName,lastName,mobile);
         this.nameCompany = nameCompany;
         this.products = products;
     }

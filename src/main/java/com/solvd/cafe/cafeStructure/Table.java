@@ -5,17 +5,12 @@ import java.util.Objects;
 public class Table {
     private int tableId;
     private int numberOfSeats;
-    private Branch branch;
-    private Hall hall;
-
     public Table(){
 
     }
-    public Table(int tableId, int numberOfSeats, Branch branch, Hall hall) {
+    public Table(int tableId, int numberOfSeats) {
         this.tableId = tableId;
         this.numberOfSeats = numberOfSeats;
-        this.branch = branch;
-        this.hall = hall;
     }
 
     public int getTableId() {
@@ -32,31 +27,17 @@ public class Table {
         this.numberOfSeats = numberOfSeats;
     }
 
-    public Branch getBranch() {
-        return branch;
-    }
-
-    public void setBranch(Branch branch) {
-        this.branch = branch;
-    }
-
-    public Hall getHall() {
-        return hall;
-    }
-
-    public void setHall(Hall hall) {this.hall = hall;}
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Table table = (Table) o;
-        return tableId == table.tableId && numberOfSeats == table.numberOfSeats && branch.equals(table.branch) && hall.equals(table.hall);
+        return tableId == table.tableId && numberOfSeats == table.numberOfSeats;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(tableId, numberOfSeats, branch, hall);
+        return Objects.hash(tableId, numberOfSeats);
     }
 
     @Override
@@ -64,8 +45,6 @@ public class Table {
         return "Table{" +
                 "tableId=" + tableId +
                 ", numberOfSeats=" + numberOfSeats +
-                ", branch=" + branch +
-                ", hall=" + hall +
                 '}';
     }
 }

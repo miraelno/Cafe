@@ -4,25 +4,16 @@ import java.util.Date;
 import java.util.Objects;
 
 public abstract class Employee extends Person {
-    private Date startWork;
     private double salary;
     private int vacationsDay;
 
     public Employee(){
     }
-    public Employee(String firstName, String lastName, String mobile, Date startWork, double salary, String position, int vacationsDay){
+    public Employee(String firstName, String lastName, String mobile, double salary,
+                    int vacationsDay){
         super(firstName,lastName,mobile);
-        this.startWork = startWork;
         this.salary = salary;
         this.vacationsDay = vacationsDay;
-    }
-
-    public Date getStartWork() {
-        return startWork;
-    }
-
-    public void setStartWork(Date startWork) {
-        this.startWork = startWork;
     }
 
     public double getSalary() {
@@ -44,7 +35,6 @@ public abstract class Employee extends Person {
     @Override
     public String toString() {
         return "Employee{" +
-                "startWork=" + startWork +
                 ", salary=" + salary +
                 ", vacationsDay=" + vacationsDay +
                 '}';
@@ -55,11 +45,11 @@ public abstract class Employee extends Person {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         Employee employee = (Employee) o;
-        return Double.compare(employee.salary, salary) == 0 && vacationsDay == employee.vacationsDay && startWork.equals(employee.startWork);
+        return Double.compare(employee.salary, salary) == 0 && vacationsDay == employee.vacationsDay;
     }
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), startWork, salary, vacationsDay);
+        return Objects.hash(super.hashCode(),salary, vacationsDay);
     }
 }
 

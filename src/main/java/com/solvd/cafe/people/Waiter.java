@@ -14,23 +14,15 @@ import java.util.*;
 
 public class Waiter extends Employee{
     private static final Logger waiterLogger = LogManager.getLogger(Waiter.class);
-    private Branch branch;
     private boolean speaksEnglish;
 
     public Waiter (){
     }
 
-    public Waiter(Branch branch, boolean speaksEnglish) {
-        this.branch = branch;
+    public Waiter(String firstName, String lastName, String mobile, double salary,
+                  int vacationsDay, boolean speaksEnglish) {
+        super(firstName,lastName,mobile,salary,vacationsDay);
         this.speaksEnglish = speaksEnglish;
-    }
-
-    public Branch getBranch() {
-        return branch;
-    }
-
-    public void setBranch(Branch branch) {
-        this.branch = branch;
     }
 
     public boolean isSpeaksEnglish() {
@@ -47,18 +39,17 @@ public class Waiter extends Employee{
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         Waiter waiter = (Waiter) o;
-        return speaksEnglish == waiter.speaksEnglish && branch.equals(waiter.branch);
+        return speaksEnglish == waiter.speaksEnglish;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), branch, speaksEnglish);
+        return Objects.hash(super.hashCode(),speaksEnglish);
     }
 
     @Override
     public String toString() {
         return "Waiter{" +
-                "branch=" + branch +
                 ", speaksEnglish=" + speaksEnglish +
                 '}';
     }

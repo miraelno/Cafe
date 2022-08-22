@@ -1,33 +1,34 @@
 package com.solvd.cafe.cafeStructure;
 
+import com.solvd.cafe.enums.CityBranch;
 import com.solvd.cafe.interfaces.IWorking;
 import com.solvd.cafe.people.Administrator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
-public class Branch implements IWorking{    //Café branches
+public class Branch implements IWorking{
     Logger branchLogger = LogManager.getLogger(Branch.class);
     private int branchId;
-    private String city;
+    private CityBranch city;
     private String address;
-    private int numberOfHalls;
-    private int numberOfSeats;
     private Administrator administrator;
+    private Kitchen kitchen;
+    private List<Table> table;
 
-    public Branch(){
+    public Branch (){
 
     }
-    public Branch(int branchId, String city, String address, int numberOfHalls, int numberOfSeats,
-                  Administrator administrator){
-
+    public Branch(int branchId, CityBranch city, String address, Administrator administrator, Kitchen kitchen, List<Table> table) {
         this.branchId = branchId;
         this.city = city;
         this.address = address;
-        this.numberOfHalls = numberOfHalls;
-        this.numberOfSeats = numberOfSeats;
         this.administrator = administrator;
+        this.kitchen = kitchen;
+        this.table = table;
     }
 
     public int getBranchId() {
@@ -38,11 +39,11 @@ public class Branch implements IWorking{    //Café branches
         this.branchId = branchId;
     }
 
-    public String getCity() {
+    public CityBranch getCity() {
         return city;
     }
 
-    public void setCity(String city) {
+    public void setCity(CityBranch city) {
         this.city = city;
     }
 
@@ -54,22 +55,6 @@ public class Branch implements IWorking{    //Café branches
         this.address = address;
     }
 
-    public int getNumberOfHalls() {
-        return numberOfHalls;
-    }
-
-    public void setNumberOfHalls(int numberOfHalls) {
-        this.numberOfHalls = numberOfHalls;
-    }
-
-    public int getNumberOfSeats() {
-        return numberOfSeats;
-    }
-
-    public void setNumberOfSeats(int numberOfSeats) {
-        this.numberOfSeats = numberOfSeats;
-    }
-
     public Administrator getAdministrator() {
         return administrator;
     }
@@ -78,34 +63,49 @@ public class Branch implements IWorking{    //Café branches
         this.administrator = administrator;
     }
 
+    public Kitchen getKitchen() {
+        return kitchen;
+    }
+
+    public void setKitchen(Kitchen kitchen) {
+        this.kitchen = kitchen;
+    }
+    public List<Table> getTable() {
+        return table;
+    }
+
+    public void setTable(List<Table> table) {
+        this.table = table;
+    }
+
+    @Override
+    public boolean work(Date date) {
+    branchLogger.info("Yes, we are open!");
+    return true;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Branch branch = (Branch) o;
-        return branchId == branch.branchId && numberOfHalls == branch.numberOfHalls && numberOfSeats == branch.numberOfSeats && city.equals(branch.city) && address.equals(branch.address) && administrator.equals(branch.administrator);
+        return branchId == branch.branchId && city == branch.city && address.equals(branch.address) && administrator.equals(branch.administrator) && kitchen.equals(branch.kitchen) && table.equals(branch.table);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(branchId, city, address, numberOfHalls, numberOfSeats, administrator);
+        return Objects.hash(branchId, city, address, administrator, kitchen, table);
     }
 
     @Override
     public String toString() {
         return "Branch{" +
                 "branchId=" + branchId +
-                ", city='" + city + '\'' +
+                ", city=" + city +
                 ", address='" + address + '\'' +
-                ", numberOfHalls=" + numberOfHalls +
-                ", numberOfSeats=" + numberOfSeats +
                 ", administrator=" + administrator +
+                ", kitchen=" + kitchen +
+                ", table=" + table +
                 '}';
-    }
-
-    @Override
-    public boolean work() {
-    branchLogger.info("Yes, we are open!");
-    return true;
     }
 }

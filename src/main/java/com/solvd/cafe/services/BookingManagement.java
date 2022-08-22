@@ -3,6 +3,7 @@ package com.solvd.cafe.services;
 import com.solvd.cafe.cafeStructure.Branch;
 import com.solvd.cafe.cafeStructure.Table;
 import com.solvd.cafe.exceptions.NoSuchBranchException;
+import com.solvd.cafe.interfaces.IBooking;
 import com.solvd.cafe.order.Booking;
 import com.solvd.cafe.people.Client;
 import org.apache.logging.log4j.LogManager;
@@ -13,15 +14,15 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
-public abstract class BookingManagement {
+public abstract class BookingManagement{
     static private final Logger bookLogger = LogManager.getLogger(BookingManagement.class);
 
     public static Booking createBook(Client client, Branch branch, Table table){
         bookLogger.info("Please, choose in witch city you want to create a booking");
         Scanner scan = new Scanner(System.in);
-        String city = scan.nextLine();
+        String city = scan.nextLine().toLowerCase();
         try {
-            if (branch.getCity().equals(city)) {
+            if (String.valueOf(branch.getCity()).toLowerCase().equals(city)) {
                 bookLogger.info("How much guests will be?");
             } else {
                 throw new NoSuchBranchException();

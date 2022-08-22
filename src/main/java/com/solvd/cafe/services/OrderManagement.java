@@ -40,11 +40,6 @@ public abstract class OrderManagement {
     public static Order updateOrder(Order order, TreeMap<Menu, Integer> menuItems) {
         return null;
     }
-
-    public static Menu filterMenu(List<Product> menu, String type){
-        return new Menu(menu.stream().filter(x -> x.getType() == MenuItemType.valueOf(type))
-                .collect(Collectors.toList()));
-    };
 }
 
 

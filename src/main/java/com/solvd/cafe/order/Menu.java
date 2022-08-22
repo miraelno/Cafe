@@ -2,9 +2,9 @@ package com.solvd.cafe.order;
 
 import com.solvd.cafe.enums.MenuItemType;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class Menu {
     private List<Product> product;
@@ -41,5 +41,10 @@ public class Menu {
     public String toString() {
         return "Our menu:\n" +
                 product;
+    }
+
+    public Menu filter(String type){
+        return new Menu(product.stream().filter(x -> x.getType() == MenuItemType.valueOf(type))
+                .collect(Collectors.toList()));
     }
 }

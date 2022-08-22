@@ -20,9 +20,8 @@ public class Main {
         mainLogger.info(admin1.getFirstName());*/
 
         //StringTask.readText();
-        List<Product> menuList = GenerateData.MenuGenerator();
-        Menu menu = new Menu(menuList);
+        Menu menu = GenerateData.MenuGenerator();
         mainLogger.info(menu);
-        mainLogger.info(OrderManagement.filterMenu(menuList, "DRINK"));
+        mainLogger.info(menu.filter("DRINK"));
     }
 }

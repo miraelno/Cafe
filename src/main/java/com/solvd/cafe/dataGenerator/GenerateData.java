@@ -60,7 +60,7 @@ public abstract class GenerateData {
         return branches;
     }
 
-    public static List<Product> MenuGenerator(){
+    public static Menu MenuGenerator(){
         List<Product> menuList = new ArrayList<>();
 
         menuList.add(new Product("Coffee", MenuItemType.DRINK, 25));
@@ -74,6 +74,6 @@ public abstract class GenerateData {
         menuList.add(new Product("Potatoes with cutlet", MenuItemType.MAIN_COURSE, 52));
         menuList.add(new Product("Margarita pizza", MenuItemType.PIZZA, 70));
         menuList.add(new Product("Meat pizza", MenuItemType.PIZZA, 120));
-        return menuList;
+        return new Menu(menuList);
     }
 }

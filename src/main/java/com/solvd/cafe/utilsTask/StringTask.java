@@ -23,4 +23,8 @@ public abstract class StringTask {
         }
         taskLogger.info("The text contains word 'Scotsman' " + StringUtils.countMatches(text, "Scotsman")+" times.");
     }
+
+    public static void main(String[] args){
+        readText();
+    }
 }

@@ -19,7 +19,6 @@ public class Main {
         Administrator admin1 = branches.get(0).getAdministrator();
         mainLogger.info(admin1.getFirstName());*/
 
-        //StringTask.readText();
         Menu menu = GenerateData.MenuGenerator();
         mainLogger.info(menu);
         mainLogger.info(menu.filter("DRINK"));

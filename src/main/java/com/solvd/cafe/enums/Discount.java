@@ -6,7 +6,6 @@ public enum Discount {
     SHARE_IN_SOCIAL_NETWORK(15);
 
     private int discountSum;
-
     Discount(int discountSum) {
     }
 

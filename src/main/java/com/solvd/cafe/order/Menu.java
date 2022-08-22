@@ -7,20 +7,20 @@ import java.util.List;
 import java.util.Objects;
 
 public class Menu {
-    private ArrayList<Product> product;
+    private List<Product> product;
 
     public Menu (){
 
     }
-    public Menu(ArrayList<Product> product) {
+    public Menu(List<Product> product) {
         this.product = product;
     }
 
-    public ArrayList<Product> getProduct() {
+    public List<Product> getProduct() {
         return product;
     }
 
-    public void setProduct(ArrayList<Product> product) {
+    public void setProduct(List<Product> product) {
         this.product = product;
     }
 

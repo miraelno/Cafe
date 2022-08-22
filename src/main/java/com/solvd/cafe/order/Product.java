@@ -1,6 +1,7 @@
 package com.solvd.cafe.order;
 
 import com.solvd.cafe.enums.MenuItemType;
+import com.solvd.cafe.people.Provider;
 
 import java.util.Objects;
 
@@ -59,4 +60,5 @@ public class Product {
     public String toString() {
         return "\n'" + name +'\'' + " - " + price+ " UAH";
     }
+
 }

@@ -10,8 +10,8 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
 
-public class Task {
-    private static final Logger taskLogger = LogManager.getLogger(Task.class);
+public abstract class StringTask {
+    private static final Logger taskLogger = LogManager.getLogger(StringTask.class);
     private static final File textFile = new File("src/main/java/com/solvd/cafe/utilsTask/text.txt");
 
     public static void readText(){

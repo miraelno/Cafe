@@ -33,7 +33,7 @@ public abstract class MainMenu {
                 System.out.println("1 - Order management\n" +
                         "2 - Employee Management \n" +
                         "3 - Booking Management \n" +
-                        "4 - Kitchen Order Management \n" +
+                        "4 - Kitchen Order Management (need to implement)\n" +
                         "0 - Exit");
                 answer = scanner.nextLine();
                 try{
@@ -50,13 +50,13 @@ public abstract class MainMenu {
                     orderChoise();
                     break;
                 case "2":
-                    System.out.println("Need ");
+                    System.out.println("(need to implement)");
                     break;
                 case "3":
                     bookingChoise();
                     break;
                 case "4":
-                    System.out.println("you choosee 3");
+                    System.out.println("(need to implement)");
                     break;
                 case "0":
                     System.out.println("Goodbye!");
@@ -69,9 +69,9 @@ public abstract class MainMenu {
         do{
             System.out.println("Order Management page: ");
             System.out.println("1 - Add order\n" +
-                    "2 - Update Order \n" +
-                    "3 - Find order \n" +
-                    "4 - Delete order \n" +
+                    "2 - Update Order (need to implement)\n" +
+                    "3 - Find order (need to implement)\n" +
+                    "4 - Delete order (need to implement)\n" +
                     "0 - Back");
             answer = scanner.nextLine();
             try{
@@ -99,7 +99,6 @@ public abstract class MainMenu {
             case "0":
                 mainMenu();
         }
-
     }
 
     public static void bookingChoise(){
@@ -107,8 +106,8 @@ public abstract class MainMenu {
         do{
             System.out.println("Booking Management page: ");
             System.out.println("1 - Add booking\n" +
-                    "2 - Update booking \n" +
-                    "3 - Find booking \n" +
+                    "2 - Update booking (need to implement)\n" +
+                    "3 - Find booking (need to implement)\n" +
                     "4 - Delete booking \n" +
                     "0 - Back");
             answer = scanner.nextLine();

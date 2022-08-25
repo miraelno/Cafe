@@ -2,6 +2,7 @@ package com.solvd.cafe.services;
 
 import com.solvd.cafe.cafeStructure.Branch;
 import com.solvd.cafe.menu.Menu;
+import com.solvd.cafe.order.Booking;
 import com.solvd.cafe.order.Order;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -53,6 +54,13 @@ public abstract class OrderManagement{
             Map.Entry me = (Map.Entry)i.next();
             System.out.println(me.getKey()+ "- "+ me.getValue());
         }
+    }
+
+    boolean canselOrder(Order order){
+        orderLogger.info("Order: " + order.getOrderId() + " was canceled!");
+        //DELETE FROM Order
+        //WHERE id = order.getId();
+        return true;
     }
 }
 

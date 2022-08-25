@@ -54,6 +54,8 @@ public abstract class BookingManagement{
     }
     boolean canselBook(Booking booking){
         bookLogger.info("Your booking: " + booking.getBookingId() + " was canceled!");
+        //DELETE FROM Booking
+        //WHERE id = booking.getId();
         return true;
     }
 }

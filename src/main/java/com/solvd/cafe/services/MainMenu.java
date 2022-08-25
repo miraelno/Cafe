@@ -6,6 +6,7 @@ import com.solvd.cafe.dataGenerator.GenerateData;
 import com.solvd.cafe.exceptions.WrongInputDataException;
 import com.solvd.cafe.menu.Menu;
 import com.solvd.cafe.people.Administrator;
+import com.solvd.cafe.people.Client;
 import com.solvd.cafe.people.Waiter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -21,6 +22,7 @@ public abstract class MainMenu {
     private static final Branch branch = branches.get(0);
     private static final Menu menu = GenerateData.MenuGenerator();
     private static final List<Table> tables = branches.get(0).getTable();
+    private static final List<Client> clients = GenerateData.ClientsGenerator();
 
     //Administrator admin1 = branches.get(0).getAdministrator();
 
@@ -51,7 +53,7 @@ public abstract class MainMenu {
                     System.out.println("Need ");
                     break;
                 case "3":
-                    System.out.println("you choosee 3");
+                    bookingChoise();
                     break;
                 case "4":
                     System.out.println("you choosee 3");
@@ -84,6 +86,44 @@ public abstract class MainMenu {
         switch (answer){
             case "1":
                 OrderManagement.addOrder(branches,menu);
+                break;
+            case "2":
+                System.out.println("Need to implement!");
+                break;
+            case "3":
+                System.out.println("Need to implement!");
+                break;
+            case "4":
+                System.out.println("Need to implement!");
+                break;
+            case "0":
+                mainMenu();
+        }
+
+    }
+
+    public static void bookingChoise(){
+        String answer;
+        do{
+            System.out.println("Booking Management page: ");
+            System.out.println("1 - Add booking\n" +
+                    "2 - Update booking \n" +
+                    "3 - Find booking \n" +
+                    "4 - Delete booking \n" +
+                    "0 - Back");
+            answer = scanner.nextLine();
+            try{
+                if (!answer.matches("[0-4]")){
+                    throw new WrongInputDataException();
+                }
+            } catch (WrongInputDataException e){
+                mainMenuLogger.error(e.getMessage());
+            }
+        }while (!answer.matches("[0-4]"));
+
+        switch (answer){
+            case "1":
+                BookingManagement.createBook(clients.get(0),branches);
                 break;
             case "2":
                 System.out.println("Need to implement!");

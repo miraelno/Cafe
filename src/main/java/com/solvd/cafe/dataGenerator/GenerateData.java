@@ -8,6 +8,7 @@ import com.solvd.cafe.enums.MenuItemType;
 import com.solvd.cafe.menu.Menu;
 import com.solvd.cafe.menu.Product;
 import com.solvd.cafe.people.Administrator;
+import com.solvd.cafe.people.Client;
 import com.solvd.cafe.people.Waiter;
 
 import java.util.ArrayList;
@@ -75,5 +76,17 @@ public abstract class GenerateData {
         menuList.add(new Product("Margarita pizza", MenuItemType.PIZZA, 70));
         menuList.add(new Product("Meat pizza", MenuItemType.PIZZA, 120));
         return new Menu(menuList);
+    }
+
+    public static List<Client> ClientsGenerator(){
+        List<Client> clients = new ArrayList<>();
+
+        clients.add(new Client("Ivan","Poroh","2012354861",1,false));
+        clients.add(new Client("Svitlana","Zarah","201221544861",2,false));
+        clients.add(new Client("Maryna","Bayda","20123540215",3,true));
+        clients.add(new Client("Katerina","Zara","2222354861",4,true));
+        clients.add(new Client("Pavlo","Lahun","201235482014",5,false));
+
+        return clients;
     }
 }

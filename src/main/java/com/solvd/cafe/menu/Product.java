@@ -1,7 +1,6 @@
-package com.solvd.cafe.order;
+package com.solvd.cafe.menu;
 
 import com.solvd.cafe.enums.MenuItemType;
-import com.solvd.cafe.people.Provider;
 
 import java.util.Objects;
 

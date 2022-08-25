@@ -1,9 +1,12 @@
 package com.solvd.cafe;
 
 
+import com.solvd.cafe.cafeStructure.Branch;
+import com.solvd.cafe.cafeStructure.Table;
 import com.solvd.cafe.dataGenerator.GenerateData;
-import com.solvd.cafe.order.Menu;
-import com.solvd.cafe.order.Product;
+import com.solvd.cafe.menu.Menu;
+import com.solvd.cafe.people.Administrator;
+import com.solvd.cafe.services.MainMenu;
 import com.solvd.cafe.services.OrderManagement;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -15,12 +18,6 @@ public class Main {
     public static void main(String[] args) {
         Logger mainLogger = LogManager.getLogger(Main.class);
 
-/*      List<Branch> branches = GenerateData.BranchGenerator();
-        Administrator admin1 = branches.get(0).getAdministrator();
-        mainLogger.info(admin1.getFirstName());*/
-
-        Menu menu = GenerateData.MenuGenerator();
-        mainLogger.info(menu);
-        mainLogger.info(menu.filter("DRINK"));
+        MainMenu.mainMenu();
     }
 }

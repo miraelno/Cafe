@@ -5,8 +5,8 @@ import com.solvd.cafe.cafeStructure.Kitchen;
 import com.solvd.cafe.cafeStructure.Table;
 import com.solvd.cafe.enums.CityBranch;
 import com.solvd.cafe.enums.MenuItemType;
-import com.solvd.cafe.order.Menu;
-import com.solvd.cafe.order.Product;
+import com.solvd.cafe.menu.Menu;
+import com.solvd.cafe.menu.Product;
 import com.solvd.cafe.people.Administrator;
 import com.solvd.cafe.people.Waiter;
 

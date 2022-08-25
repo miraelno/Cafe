@@ -1,17 +1,11 @@
 package com.solvd.cafe.utilsTask;
 
 import com.solvd.cafe.Main;
-import com.solvd.cafe.dataGenerator.GenerateData;
-import com.solvd.cafe.order.Menu;
-import com.solvd.cafe.order.Product;
-import com.solvd.cafe.people.Person;
 import com.solvd.cafe.people.Provider;
-import com.solvd.cafe.services.OrderManagement;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.lang.reflect.Field;
-import java.util.List;
 
 public abstract class ReflectionTask {
 

@@ -3,7 +3,6 @@ package com.solvd.cafe.services;
 import com.solvd.cafe.cafeStructure.Branch;
 import com.solvd.cafe.cafeStructure.Table;
 import com.solvd.cafe.exceptions.NoSuchBranchException;
-import com.solvd.cafe.interfaces.IBooking;
 import com.solvd.cafe.order.Booking;
 import com.solvd.cafe.people.Client;
 import org.apache.logging.log4j.LogManager;

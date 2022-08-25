@@ -1,12 +1,13 @@
-package com.solvd.cafe.order;
+package com.solvd.cafe.menu;
 
 import com.solvd.cafe.enums.MenuItemType;
+import com.solvd.cafe.interfaces.IFilter;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-public class Menu {
+public class Menu implements IFilter {
     private List<Product> product;
 
     public Menu (){

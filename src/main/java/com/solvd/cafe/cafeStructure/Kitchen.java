@@ -1,14 +1,13 @@
 package com.solvd.cafe.cafeStructure;
 
-import com.solvd.cafe.interfaces.IOrderQueue;
-import com.solvd.cafe.interfaces.IWorking;
+import com.solvd.cafe.interfaces.IWork;
 import com.solvd.cafe.order.Order;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.*;
 
-public class Kitchen implements IWorking, IOrderQueue {
+public class Kitchen implements IWork {
     Logger kitchenLogger = LogManager.getLogger(Kitchen.class);
     private int branchId;
     private int maxNumberOfCooks;
@@ -67,6 +66,23 @@ public class Kitchen implements IWorking, IOrderQueue {
         this.orders = orders;
     }
 
+    public ArrayList<TreeMap<Integer, TreeMap<String, Integer>>> addOrder(Order order) {
+        /*   TreeMap<String, Integer> menuItems = new TreeMap<>();
+        ArrayDeque<TreeMap<String, Integer>> order = new ArrayDeque<>();
+        menuItems.put(name, quantity);
+        order.add(menuItems);
+        order.add(menuItems);
+        System.out.println(order);
+        return null;*/
+        kitchenLogger.info(order);
+        order.getMenuItems();
+        return null;
+    }
+
+    public ArrayDeque<Order> giveOrder() {
+        return null;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -94,22 +110,5 @@ public class Kitchen implements IWorking, IOrderQueue {
     public boolean work(Date date) {
         kitchenLogger.info("Yes, we are open!");
         return true;
-    }
-
-    public ArrayList<TreeMap<Integer, TreeMap<String, Integer>>> addOrder(Order order) {
-        /*   TreeMap<String, Integer> menuItems = new TreeMap<>();
-        ArrayDeque<TreeMap<String, Integer>> order = new ArrayDeque<>();
-        menuItems.put(name, quantity);
-        order.add(menuItems);
-        order.add(menuItems);
-        System.out.println(order);
-        return null;*/
-        kitchenLogger.info(order);
-        order.getMenuItems();
-        return null;
-    }
-
-    public ArrayDeque<Order> giveOrder() {
-        return null;
     }
 }

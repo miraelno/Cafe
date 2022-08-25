@@ -5,9 +5,10 @@ import java.util.Objects;
 public class Table {
     private int tableId;
     private int numberOfSeats;
-    public Table(){
 
+    public Table() {
     }
+
     public Table(int tableId, int numberOfSeats) {
         this.tableId = tableId;
         this.numberOfSeats = numberOfSeats;
@@ -21,7 +22,9 @@ public class Table {
         this.tableId = tableId;
     }
 
-    public int getNumberOfSeats() {return numberOfSeats;}
+    public int getNumberOfSeats() {
+        return numberOfSeats;
+    }
 
     public void setNumberOfSeats(int numberOfSeats) {
         this.numberOfSeats = numberOfSeats;

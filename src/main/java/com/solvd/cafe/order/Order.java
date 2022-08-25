@@ -20,7 +20,14 @@ public class Order {
     public Order() {
 
     }
-
+    public Order(int orderId, Branch branch, Kitchen kitchen, TreeMap<String, Integer> menuItems,
+                 Date dateOrder) {
+        this.orderId = orderId;
+        this.branch = branch;
+        this.kitchen = kitchen;
+        this.menuItems = menuItems;
+        this.dateOrder = dateOrder;
+    }
     public Order(int orderId, Branch branch, Kitchen kitchen, Waiter waiter, TreeMap<String, Integer> menuItems,
                  Date dateOrder) {
         this.orderId = orderId;

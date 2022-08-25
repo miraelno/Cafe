@@ -1,7 +1,8 @@
 package com.solvd.cafe.cafeStructure;
 
 import com.solvd.cafe.enums.CityBranch;
-import com.solvd.cafe.interfaces.IWorking;
+import com.solvd.cafe.interfaces.IFindTable;
+import com.solvd.cafe.interfaces.IWork;
 import com.solvd.cafe.people.Administrator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -10,7 +11,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
-public class Branch implements IWorking{
+public class Branch implements IWork, IFindTable {
     Logger branchLogger = LogManager.getLogger(Branch.class);
     private int branchId;
     private CityBranch city;
@@ -19,9 +20,10 @@ public class Branch implements IWorking{
     private Kitchen kitchen;
     private List<Table> table;
 
-    public Branch (){
+    public Branch() {
 
     }
+
     public Branch(int branchId, CityBranch city, String address, Administrator administrator, Kitchen kitchen, List<Table> table) {
         this.branchId = branchId;
         this.city = city;
@@ -70,6 +72,7 @@ public class Branch implements IWorking{
     public void setKitchen(Kitchen kitchen) {
         this.kitchen = kitchen;
     }
+
     public List<Table> getTable() {
         return table;
     }
@@ -80,8 +83,13 @@ public class Branch implements IWorking{
 
     @Override
     public boolean work(Date date) {
-    branchLogger.info("Yes, we are open!");
-    return true;
+        branchLogger.info("Yes, we are open!");
+        return true;
+    }
+
+    @Override
+    public Table findTable(Branch branch) {
+        return null;
     }
 
     @Override

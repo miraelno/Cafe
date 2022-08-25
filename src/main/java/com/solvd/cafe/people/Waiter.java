@@ -1,15 +1,8 @@
 package com.solvd.cafe.people;
 
-import com.solvd.cafe.cafeStructure.Branch;
-import com.solvd.cafe.cafeStructure.Kitchen;
-import com.solvd.cafe.cafeStructure.Table;
-import com.solvd.cafe.interfaces.IOrdering;
-import com.solvd.cafe.order.Menu;
-import com.solvd.cafe.order.Order;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class Waiter extends Employee{

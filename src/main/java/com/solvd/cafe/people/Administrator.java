@@ -1,11 +1,9 @@
 package com.solvd.cafe.people;
 
 import com.solvd.cafe.exceptions.VacationException;
-import com.solvd.cafe.interfaces.IApproveVacation;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.Date;
 import java.util.Objects;
 
 public class Administrator extends Employee{

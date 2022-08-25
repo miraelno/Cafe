@@ -13,7 +13,9 @@ public class Cafe {
     private List<Branch> branch;
     private List<Client> client;
 
-    public Cafe(){};
+    public Cafe() {
+    }
+
     public Cafe(String nameCafe, String nameOwner, List<Employee> employee, List<Branch> branch, List<Client> client) {
         this.nameCafe = nameCafe;
         this.nameOwner = nameOwner;

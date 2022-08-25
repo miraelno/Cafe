@@ -1,18 +1,9 @@
 package com.solvd.cafe.people;
 
-import com.solvd.cafe.cafeStructure.Branch;
-import com.solvd.cafe.cafeStructure.Table;
-import com.solvd.cafe.exceptions.NoSuchBranchException;
-import com.solvd.cafe.interfaces.IBooking;
-import com.solvd.cafe.order.Booking;
 import org.apache.logging.log4j.*;
 
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Objects;
-import java.util.Scanner;
 
 
 public class Client extends Person{

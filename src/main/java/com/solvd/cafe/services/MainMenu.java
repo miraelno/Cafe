@@ -1,28 +1,34 @@
 package com.solvd.cafe.services;
 
-import com.solvd.cafe.cafeStructure.Branch;
-import com.solvd.cafe.cafeStructure.Table;
-import com.solvd.cafe.dataGenerator.GenerateData;
+import com.solvd.cafe.data.DBMemory;
+import com.solvd.cafe.data.GenerateData;
+import com.solvd.cafe.dataManagement.BookingManagement;
+import com.solvd.cafe.dataManagement.OrderManagement;
 import com.solvd.cafe.exceptions.WrongInputDataException;
 import com.solvd.cafe.menu.Menu;
-import com.solvd.cafe.people.Administrator;
+import com.solvd.cafe.order.Order;
 import com.solvd.cafe.people.Client;
-import com.solvd.cafe.people.Waiter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public abstract class MainMenu {
     private final static Logger mainMenuLogger = LogManager.getLogger(MainMenu.class);
     private static final Scanner scanner = new Scanner(System.in);
-
-    private static final List<Branch> branches = GenerateData.BranchGenerator();
-    private static final Branch branch = branches.get(0);
     private static final Menu menu = GenerateData.MenuGenerator();
-    private static final List<Table> tables = branches.get(0).getTable();
     private static final List<Client> clients = GenerateData.ClientsGenerator();
+    private static List<Order> orders = new ArrayList<>();
+
+    public static List<Order> getOrders() {
+        return orders;
+    }
+
+    public static void setOrders(List<Order> orders) {
+        MainMenu.orders = orders;
+    }
 
     //Administrator admin1 = branches.get(0).getAdministrator();
 
@@ -71,7 +77,7 @@ public abstract class MainMenu {
             System.out.println("1 - Add order\n" +
                     "2 - Update Order (need to implement)\n" +
                     "3 - Find order (need to implement)\n" +
-                    "4 - Delete order (need to implement)\n" +
+                    "4 - Delete order\n" +
                     "0 - Back");
             answer = scanner.nextLine();
             try{
@@ -85,7 +91,8 @@ public abstract class MainMenu {
 
         switch (answer){
             case "1":
-                OrderManagement.addOrder(branches,menu);
+                OrderManagement.addOrder();
+                mainMenu();
                 break;
             case "2":
                 System.out.println("Need to implement!");
@@ -94,7 +101,8 @@ public abstract class MainMenu {
                 System.out.println("Need to implement!");
                 break;
             case "4":
-                System.out.println("Need to implement!");
+                OrderManagement.canselOrder();
+                mainMenu();
                 break;
             case "0":
                 mainMenu();
@@ -122,7 +130,8 @@ public abstract class MainMenu {
 
         switch (answer){
             case "1":
-                BookingManagement.createBook(clients.get(0),branches);
+                BookingManagement.createBook(clients.get(0),DBMemory.getBranches());
+                mainMenu();
                 break;
             case "2":
                 System.out.println("Need to implement!");

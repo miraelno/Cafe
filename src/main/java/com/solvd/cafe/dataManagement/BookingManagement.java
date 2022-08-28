@@ -1,7 +1,7 @@
-package com.solvd.cafe.services;
+package com.solvd.cafe.dataManagement;
 
 import com.solvd.cafe.cafeStructure.Branch;
-import com.solvd.cafe.cafeStructure.Table;
+import com.solvd.cafe.data.DBMemory;
 import com.solvd.cafe.exceptions.NoSuchBranchException;
 import com.solvd.cafe.order.Booking;
 import com.solvd.cafe.people.Client;
@@ -12,6 +12,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
@@ -19,6 +20,7 @@ public abstract class BookingManagement{
     static private final Logger bookLogger = LogManager.getLogger(BookingManagement.class);
 
     public static Booking createBook(Client client, List<Branch> branches) {
+        Random random = new Random();
         bookLogger.info("Please, choose in witch city you want to create a booking");
         branches.forEach((x) -> System.out.println(x.getCity()));
         Scanner scan = new Scanner(System.in);
@@ -48,8 +50,12 @@ public abstract class BookingManagement{
         } catch (Exception e) {
             System.out.println(e);
         }
-        Booking booking = new Booking(1, branch.getTable().get(0), client, num, branch, date);
+        Booking booking = new Booking(random.nextInt(101) + 1, branch.getTable().get(0), client, num, branch, date);
+        List<Booking> bookingList = DBMemory.getBookings();
+        bookLogger.info(bookingList);
         bookLogger.info(booking);
+        bookingList.add(booking);
+        bookLogger.info(bookingList);
         return booking;
     }
     boolean canselBook(Booking booking){

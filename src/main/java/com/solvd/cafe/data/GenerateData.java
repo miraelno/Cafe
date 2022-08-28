@@ -1,4 +1,4 @@
-package com.solvd.cafe.dataGenerator;
+package com.solvd.cafe.data;
 
 import com.solvd.cafe.cafeStructure.Branch;
 import com.solvd.cafe.cafeStructure.Kitchen;
@@ -7,6 +7,7 @@ import com.solvd.cafe.enums.CityBranch;
 import com.solvd.cafe.enums.MenuItemType;
 import com.solvd.cafe.menu.Menu;
 import com.solvd.cafe.menu.Product;
+import com.solvd.cafe.order.Booking;
 import com.solvd.cafe.people.Administrator;
 import com.solvd.cafe.people.Client;
 import com.solvd.cafe.people.Waiter;
@@ -17,29 +18,9 @@ import java.util.List;
 
 public abstract class GenerateData {
 
-    public static List<Waiter> WaiterGenerator() {
-        List<Waiter> waiters = new ArrayList<>();
-
-        Waiter waiter1 = new Waiter("Dima", "Kolomya", "0361245789", 18000, 2, true);
-        Waiter waiter2 = new Waiter("Katya", "Havronska", "036456875", 18000, 5, true);
-        Waiter waiter3 = new Waiter("Natalia", "Besida", "0364021578", 15000, 15, false);
-        Waiter waiter4 = new Waiter("Maria", "Lavuta", "0632562015", 20000, 21, true);
-
-        waiters.add(waiter1);
-        waiters.add(waiter2);
-        waiters.add(waiter3);
-        waiters.add(waiter4);
-        return waiters;
-    }
-
     public static List<Branch> BranchGenerator() {
         List<Table> tables = new ArrayList<>();
         List<Branch> branches = new ArrayList<>();
-
-        // Table table1 = new Table(1, 2);
-        //Table table2 = new Table(2, 5);
-        // Table table3 = new Table(3, 3);
-        // Table table4 = new Table(4, 2);
 
         tables.add(new Table(1, 2));
         tables.add(new Table(2, 5));
@@ -59,6 +40,21 @@ public abstract class GenerateData {
         branches.add(branch1);
         branches.add(branch2);
         return branches;
+    }
+
+    public static List<Waiter> WaiterGenerator() {
+        List<Waiter> waiters = new ArrayList<>();
+
+        Waiter waiter1 = new Waiter("Dima", "Kolomya", "0361245789", 18000, 2, true);
+        Waiter waiter2 = new Waiter("Katya", "Havronska", "036456875", 18000, 5, true);
+        Waiter waiter3 = new Waiter("Natalia", "Besida", "0364021578", 15000, 15, false);
+        Waiter waiter4 = new Waiter("Maria", "Lavuta", "0632562015", 20000, 21, true);
+
+        waiters.add(waiter1);
+        waiters.add(waiter2);
+        waiters.add(waiter3);
+        waiters.add(waiter4);
+        return waiters;
     }
 
     public static Menu MenuGenerator(){

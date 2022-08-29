@@ -1,4 +1,4 @@
-package com.solvd.cafe.utilsTask;
+package com.solvd.cafe.sideTasks;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;

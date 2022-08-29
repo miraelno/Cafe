@@ -1,4 +1,4 @@
-package com.solvd.cafe.utilsTask;
+package com.solvd.cafe.sideTasks;
 
 import com.solvd.cafe.Main;
 import com.solvd.cafe.people.Provider;

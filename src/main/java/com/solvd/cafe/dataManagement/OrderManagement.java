@@ -78,6 +78,9 @@ public abstract class OrderManagement {
         orderLogger.info("Order was deleted!");
     }
 
+    public static void findOrder(){
+
+    }
     public static void showOrderItems(Order order) {
         TreeMap<String, Integer> menuItems = order.getMenuItems();
         Set set = menuItems.entrySet();
